@@ -1,0 +1,33 @@
+Clase Espacio
+
+package modelo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Espacio {
+    private String nombre;
+    private List<Reserva> reservas;
+
+    public Espacio(String nombre) {
+        this.nombre = nombre;
+        this.reservas = new ArrayList<>();
+    }
+
+    public boolean verDisponibilidad(String fecha, String hora) {
+        for (Reserva r : reservas) {
+            if (r.getFecha().equals(fecha) && r.getHora().equals(hora)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void agregarReserva(Reserva reserva) {
+        reservas.add(reserva);
+    }
+
+    public void mostrarInfo() {
+        System.out.println("Espacio: " + nombre);
+    }
+}
