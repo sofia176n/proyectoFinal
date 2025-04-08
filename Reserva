@@ -1,0 +1,25 @@
+Clase Reserva
+
+package modelo;
+
+public class Reserva {
+    private Cliente cliente;
+    private Espacio espacio;
+    private String fecha;
+    private String hora;
+
+    public Reserva(Cliente cliente, Espacio espacio, String fecha, String hora) {
+        this.cliente = cliente;
+        this.espacio = espacio;
+        this.fecha = fecha;
+        this.hora = hora;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+}
