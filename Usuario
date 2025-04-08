@@ -1,0 +1,13 @@
+package modelo;
+
+public abstract class Usuario {
+    protected String nombre;
+    protected int id;
+
+    public Usuario(String nombre, int id) {
+        this.nombre = nombre;
+        this.id = id;
+    }
+
+    public abstract void mostrarDatos();
+}
