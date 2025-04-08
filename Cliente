@@ -1,0 +1,30 @@
+Clase Cliente
+
+package modelo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Cliente extends Usuario {
+    private List<Reserva> reservas;
+
+    public Cliente(String nombre, int id) {
+        super(nombre, id);
+        this.reservas = new ArrayList<>();
+    }
+
+    public void realizarReserva(Espacio espacio, String fecha, String hora) {
+        if (espacio.verDisponibilidad(fecha, hora)) {
+            Reserva nuevaReserva = new Reserva(this, espacio, fecha, hora);
+            reservas.add(nuevaReserva);
+            espacio.agregarReserva(nuevaReserva);
+            System.out.println("Reserva realizada con exito.");
+        } else {
+            System.out.println("Horario no disponible.");
+        }
+    }
+
+    public void mostrarDatos() {
+        System.out.println("Cliente: " + nombre + ", ID: " + id);
+    }
+}
