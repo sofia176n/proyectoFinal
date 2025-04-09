@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Hotel {
+    private String nombre;
+    private List<Espacio> espacios;
+    private List<Empleado> empleados;
+
+    public Hotel(String nombre) {
+        this.nombre = nombre;
+        this.espacios = new ArrayList<>();
+        this.empleados = new ArrayList<>();
+    }
+
+    public void agregarEspacio(Espacio espacio) {
+        espacios.add(espacio);
+    }
+
+    public void agregarEmpleado(Empleado empleado) {
+        empleados.add(empleado);
+    }
+
+    public void mostrarEmpleados() {
+        System.out.println("Empleados del hotel " + nombre + ":");
+        for (Empleado e : empleados) {
+            System.out.print("- ");
+            e.trabajar(); // Polimorfismo
+        }
+    }
+
+    public void mostrarEspacios() {
+        System.out.println("Espacios del hotel " + nombre + ":");
+        for (Espacio e : espacios) {
+            e.mostrarInfo();
+        }
+    }
+}
